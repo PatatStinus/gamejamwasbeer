@@ -9,6 +9,9 @@ public class cannon : MonoBehaviour
     public float bulletSpeed = 1000f;
     public float timefire = 0.5f;
 
+    //player damage
+    public GameObject player;
+
     private IEnumerator FireBullets()
     {
         while (true) // repeat forever
@@ -25,4 +28,6 @@ public class cannon : MonoBehaviour
     {
         StartCoroutine(FireBullets()); // start the coroutine to fire bullets automatically
     }
+
+
 }
