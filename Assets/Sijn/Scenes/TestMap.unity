@@ -158,20 +158,20 @@ MonoBehaviour:
   walls:
   - {fileID: 8832659104019110441, guid: f7ad3754197f99440a21d38c0b86fc1f, type: 3}
   wallHeightRange:
-  - -15
+  - 0
   - 15
   wallWidthRange:
   - -15
   - 15
   floorHeightRange:
-  - -15
-  - 15
+  - -5
+  - 5
   floorWidthRange:
   - -15
   - 15
   distanceRange:
-  - 25
-  - 50
+  - 5
+  - 30
   spawnDistance: 500
 --- !u!4 &869962357
 Transform:
