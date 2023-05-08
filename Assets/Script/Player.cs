@@ -59,20 +59,11 @@ public class Player : MonoBehaviour
 
         verticalLookRotation += Input.GetAxisRaw("Mouse Y") * lookSensitivity;
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -60f, 60f);
-        if (walled && Input.GetButtonDown("D"))
+        if (!walled)
         {
-            Debug.Log("faf");
-            cam.transform.rotation = Quaternion.Euler(0, 180, 20);
-        }
-        if (walled && Input.GetButtonDown("A"))
-        {
-            Debug.Log("faf");
-            cam.transform.rotation = Quaternion.Euler(0, 180, -20);
-        }
-        else 
-        { 
             cam.transform.localEulerAngles = new Vector3(-verticalLookRotation, 0f, 0f);
         }
+        
     }
     //WallJumps
     private void WallJump()
@@ -108,10 +99,31 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Wall"))
         {
             walled = true;
+
+        }
+    }
+    void OnCollisionStay(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            Vector3 contactPoint = contact.point;
+            Vector3 playerPosition = transform.position; 
+            Vector3 contactVector = contactPoint - playerPosition;
+
+           
+            if (contactVector.x < 0)
+            {
+                cam.transform.rotation = Quaternion.Euler(0, 180, 20);
+            }
+            else if (contactVector.x > 0)
+            {
+                cam.transform.rotation = Quaternion.Euler(0, 180, -20);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
+        
         if (other.CompareTag("Ground"))
         {
             grounded = false;
@@ -120,6 +132,7 @@ public class Player : MonoBehaviour
         {
             walled = false;
         }
+        
     }
 }
 
