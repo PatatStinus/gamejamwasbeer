@@ -112,13 +112,15 @@ public class Player : MonoBehaviour
             Vector3 contactVector = contactPoint - playerPosition;
 
             if (contactVector.x < 0)
-            {
-                Quaternion targetRotation = Quaternion.Euler(0, 180, 10);
+            { 
+
+                Quaternion targetRotation = Quaternion.Euler(cam.transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, 10f);
+
                 cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRotation, smoothness * Time.deltaTime);
             }
             else if (contactVector.x > 0)
             {
-                Quaternion targetRotation = Quaternion.Euler(0, 180, -10);
+                Quaternion targetRotation = Quaternion.Euler(cam.transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, -10f);
                 cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRotation, smoothness * Time.deltaTime);
             }
         }
