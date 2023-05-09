@@ -17,7 +17,7 @@ public class cannon : MonoBehaviour
         while (true) // repeat forever
         {
             int randomBulletIndex = Random.Range(0, bulletPrefabs.Count); // choose a random bullet prefab from the list
-            GameObject bullet = Instantiate(bulletPrefabs[randomBulletIndex], shootingPoint.position, shootingPoint.rotation); // spawn the selected bullet
+            GameObject bullet = Instantiate(bulletPrefabs[randomBulletIndex], shootingPoint.position, bulletPrefabs[randomBulletIndex].transform.rotation); // spawn the selected bullet
             Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>(); // get the rigidbody component of the bullet
             bulletRigidbody.AddForce(shootingPoint.forward * bulletSpeed); // add force to the bullet in the direction of the shooting point
             yield return new WaitForSeconds(timefire); // wait for the specified time before firing the next bullet
