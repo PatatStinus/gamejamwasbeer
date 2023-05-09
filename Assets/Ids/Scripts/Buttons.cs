@@ -26,6 +26,11 @@ public class Buttons : MonoBehaviour
 
     }
 
+    public void Play() 
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 1);
+    }
+
     public void Quit() 
     {
         Application.Quit();
