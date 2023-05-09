@@ -17,8 +17,18 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.9
   intensity:
+<<<<<<< Updated upstream
     m_OverrideState: 1
     m_Value: 0.76
+=======
+<<<<<<< HEAD
+    m_OverrideState: 0
+    m_Value: 0
+=======
+    m_OverrideState: 1
+    m_Value: 0.76
+>>>>>>> e618cb4d5d05e7243c746c59ecfa421bcf0f1dba
+>>>>>>> Stashed changes
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -76,8 +86,18 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
+<<<<<<< Updated upstream
     m_OverrideState: 1
     m_Value: 0.437
+=======
+<<<<<<< HEAD
+    m_OverrideState: 0
+    m_Value: 0
+=======
+    m_OverrideState: 1
+    m_Value: 0.437
+>>>>>>> e618cb4d5d05e7243c746c59ecfa421bcf0f1dba
+>>>>>>> Stashed changes
   smoothness:
     m_OverrideState: 0
     m_Value: 0.2
