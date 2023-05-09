@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public bool grounded;
     public bool walled;
     public bool wallJumped;
-
+    public float smoothness;
 
     private Rigidbody rb;
     private float verticalLookRotation;
@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
         {
             cam.transform.localEulerAngles = new Vector3(-verticalLookRotation, 0f, 0f);
         }
+
         
     }
     //WallJumps
@@ -107,20 +108,22 @@ public class Player : MonoBehaviour
         foreach (ContactPoint contact in collision.contacts)
         {
             Vector3 contactPoint = contact.point;
-            Vector3 playerPosition = transform.position; 
+            Vector3 playerPosition = transform.position;
             Vector3 contactVector = contactPoint - playerPosition;
 
-           
             if (contactVector.x < 0)
             {
-                cam.transform.rotation = Quaternion.Euler(0, 180, 20);
+                Quaternion targetRotation = Quaternion.Euler(0, 180, 10);
+                cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRotation, smoothness * Time.deltaTime);
             }
             else if (contactVector.x > 0)
             {
-                cam.transform.rotation = Quaternion.Euler(0, 180, -20);
+                Quaternion targetRotation = Quaternion.Euler(0, 180, -10);
+                cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRotation, smoothness * Time.deltaTime);
             }
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         

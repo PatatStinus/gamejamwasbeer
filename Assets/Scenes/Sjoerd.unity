@@ -458,6 +458,7 @@ MonoBehaviour:
   grounded: 0
   walled: 0
   wallJumped: 0
+  smoothness: 10
 --- !u!136 &523399887
 CapsuleCollider:
   m_ObjectHideFlags: 0
