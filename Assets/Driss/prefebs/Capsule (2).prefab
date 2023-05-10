@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 5251820913931463657}
   - component: {fileID: 3482176470949713738}
   - component: {fileID: 6174261279218572756}
-  - component: {fileID: -6598957167324182192}
   m_Layer: 0
   m_Name: Capsule (2)
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,15 +115,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-6598957167324182192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8629688630318775722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89c0dffb2df6c149a2966597f276ad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< HEAD:Assets/Driss/Script/deathPlayer.cs
+
 public class DeathPlayer : MonoBehaviour
-=======
-public class PlayerDie : MonoBehaviour
->>>>>>> origin/Sjoerd:Assets/Driss/Script/PlayerDie.cs
 {
     
 
