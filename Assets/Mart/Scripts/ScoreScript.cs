@@ -9,7 +9,7 @@ public class ScoreScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        colliders = GetComponentsInChildren<Collider>();
     }
 
     // Update is called once per frame
