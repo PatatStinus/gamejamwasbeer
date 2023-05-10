@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public bool walled;
     public bool wallJumped;
     public float smoothness;
+    public float jumpDelay;
 
     private Rigidbody rb;
     private float verticalLookRotation;
@@ -72,7 +73,7 @@ public class Player : MonoBehaviour
         
         rb.AddForce(Vector3.up * wallJumpForce, ForceMode.Impulse);
         wallJumped = true;
-        Invoke("WallJumpReset", 2f);
+        Invoke("WallJumpReset", jumpDelay);
     }
     //WallJump Timer
     private void WallJumpReset()
@@ -124,6 +125,10 @@ public class Player : MonoBehaviour
                 cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRotation, smoothness * Time.deltaTime);
             }
         }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        Quaternion targetRotation = Quaternion.Euler(cam.transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, 0);
     }
 
     private void OnTriggerExit(Collider other)
