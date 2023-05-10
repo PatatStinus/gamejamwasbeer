@@ -14,9 +14,16 @@ public class Player : MonoBehaviour
     public float lookSensitivity = 3f;
     public Camera cam;
     public bool grounded;
+
+    //wallJumping
     public bool walled;
     public bool wallJumped;
+    public float smoothness;
+    public float jumpDelay;
 
+    //drag
+    public float wallDrag;
+    public float groundDrag;
 
     private Rigidbody rb;
     private float verticalLookRotation;
@@ -30,7 +37,15 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-      
+       //drag
+      if(walled)
+        {
+            rb.drag = wallDrag;
+        }
+        else
+        {
+            rb.drag = groundDrag;
+        }
         float xMov = Input.GetAxisRaw("Horizontal");
         float zMov = Input.GetAxisRaw("Vertical");
         // Jumping
@@ -63,6 +78,7 @@ public class Player : MonoBehaviour
         {
             cam.transform.localEulerAngles = new Vector3(-verticalLookRotation, 0f, 0f);
         }
+
         
     }
     //WallJumps
@@ -71,7 +87,7 @@ public class Player : MonoBehaviour
         
         rb.AddForce(Vector3.up * wallJumpForce, ForceMode.Impulse);
         wallJumped = true;
-        Invoke("WallJumpReset", 2f);
+        Invoke("WallJumpReset", jumpDelay);
     }
     //WallJump Timer
     private void WallJumpReset()
@@ -107,20 +123,28 @@ public class Player : MonoBehaviour
         foreach (ContactPoint contact in collision.contacts)
         {
             Vector3 contactPoint = contact.point;
-            Vector3 playerPosition = transform.position; 
+            Vector3 playerPosition = transform.position;
             Vector3 contactVector = contactPoint - playerPosition;
 
-           
             if (contactVector.x < 0)
-            {
-                cam.transform.rotation = Quaternion.Euler(0, 180, 20);
+            { 
+
+                Quaternion targetRotation = Quaternion.Euler(cam.transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, 10f);
+
+                cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRotation, smoothness * Time.deltaTime);
             }
             else if (contactVector.x > 0)
             {
-                cam.transform.rotation = Quaternion.Euler(0, 180, -20);
+                Quaternion targetRotation = Quaternion.Euler(cam.transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, -10f);
+                cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRotation, smoothness * Time.deltaTime);
             }
         }
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        Quaternion targetRotation = Quaternion.Euler(cam.transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, 0);
+    }
+
     private void OnTriggerExit(Collider other)
     {
         
