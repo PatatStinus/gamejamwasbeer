@@ -14,10 +14,16 @@ public class Player : MonoBehaviour
     public float lookSensitivity = 3f;
     public Camera cam;
     public bool grounded;
+
+    //wallJumping
     public bool walled;
     public bool wallJumped;
     public float smoothness;
     public float jumpDelay;
+
+    //drag
+    public float wallDrag;
+    public float groundDrag;
 
     private Rigidbody rb;
     private float verticalLookRotation;
@@ -31,7 +37,15 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-      
+       //drag
+      if(walled)
+        {
+            rb.drag = wallDrag;
+        }
+        else
+        {
+            rb.drag = groundDrag;
+        }
         float xMov = Input.GetAxisRaw("Horizontal");
         float zMov = Input.GetAxisRaw("Vertical");
         // Jumping

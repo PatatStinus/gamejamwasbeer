@@ -848,6 +848,8 @@ MonoBehaviour:
   wallJumped: 0
   smoothness: 10
   jumpDelay: 0.5
+  wallDrag: 1.6
+  groundDrag: 1
 --- !u!136 &523399887
 CapsuleCollider:
   m_ObjectHideFlags: 0
