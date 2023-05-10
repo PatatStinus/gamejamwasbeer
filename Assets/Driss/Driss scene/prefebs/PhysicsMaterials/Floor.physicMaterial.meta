@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Ruben.meta
+guid: c3bc36759b3eb6a4f9622f65f78906e0
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+========
+guid: 2f4e1845aa67a2a4f9b250f40d12b959
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 13400000
+>>>>>>>> origin/Sjoerd:Assets/Driss/Driss scene/prefebs/PhysicsMaterials/Floor.physicMaterial.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
