@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.24
+  m_FogDensity: 0
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -251,6 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1156466489}
   - component: {fileID: 1156466488}
+  - component: {fileID: 1156466490}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -270,26 +271,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97dab48bcd1ce9c41885801a0e687aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  floors: []
+  player: {fileID: 1420277107}
+  floors:
+  - {fileID: 919132149155446097, guid: 8d427202c94a59d4cbc65227ca2cef8d, type: 3}
   walls:
-  - {fileID: 919132149155446097, guid: 59d73967763247549a705f1c4f50f6e4, type: 3}
+  - {fileID: 919132149155446097, guid: 8d427202c94a59d4cbc65227ca2cef8d, type: 3}
   wallHeightRange:
   - 0
   - 0
   wallWidthRange:
-  - 0
-  - 0
+  - -7
+  - 7
   floorHeightRange:
-  - 0
-  - 0
+  - -2
+  - 2.5
   floorWidthRange:
-  - 0
-  - 0
+  - -2
+  - 5
   distanceRange:
-  - 0
-  - 0
-  spawnDistance: 0
+  - 5
+  - 11
+  spawnDistance: 100
+  removeDistance: 10
 --- !u!4 &1156466489
 Transform:
   m_ObjectHideFlags: 0
@@ -305,6 +308,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1156466490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156466487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fa8b98630347543ab53ad9d046f498, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1420277107}
+  ceiling: {fileID: 7744587013260820333, guid: 800cf263de8aaa84dafd4ca770b2e305, type: 3}
+  wall: {fileID: 8950299624515158165, guid: 1360578bf2a8d824fa20f38bc7f57d59, type: 3}
+  wallPosition:
+  - 0
+  - 7
+  ceilingHeight: 6
+  distanceBetween: 10
+  spawnDistance: 500
+  removeDistance: 500
 --- !u!1 &1420277107
 GameObject:
   m_ObjectHideFlags: 0
