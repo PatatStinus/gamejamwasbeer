@@ -158,6 +158,14 @@ public class Player : MonoBehaviour
         }
         
     }
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Death"))
+        {
+            Debug.Log("death");
+            Destroy(gameObject);
+        }
+    }
 }
 
 
