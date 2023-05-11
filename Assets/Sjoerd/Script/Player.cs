@@ -124,22 +124,22 @@ public class Player : MonoBehaviour
         {
             Vector3 contactPoint = contact.point;
             Vector3 playerPosition = transform.position;
-            Vector3 contactVector = contactPoint - playerPosition;
+            Vector3 wallPosition = contactPoint - contact.normal * 0.5f; // adjust the 0.5f offset as needed
+            Vector3 wallVector = wallPosition - playerPosition;
 
-            if (contactVector.x < 0)
-            { 
-
+            if (wallVector.z < 0)
+            {
                 Quaternion targetRotation = Quaternion.Euler(cam.transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, 10f);
-
                 cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRotation, smoothness * Time.deltaTime);
             }
-            else if (contactVector.x > 0)
+            else if (wallVector.z > 0)
             {
                 Quaternion targetRotation = Quaternion.Euler(cam.transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, -10f);
                 cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRotation, smoothness * Time.deltaTime);
             }
         }
     }
+
     private void OnCollisionExit(Collision collision)
     {
         Quaternion targetRotation = Quaternion.Euler(cam.transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, 0);
