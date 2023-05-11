@@ -28,6 +28,7 @@ public class WallCeilingGenerator : MonoBehaviour
             GameObject spawnedWall1 = Instantiate(wall);
             allPlatforms.Add(spawnedWall1);
             spawnedWall1.transform.position = new Vector3(lastSpawnPoint + distanceBetween, wallPosition[0], wallPosition[1]);
+            spawnedWall1.transform.rotation = Quaternion.Euler(0, -90, 0);
 
             GameObject spawnedWall2 = Instantiate(wall);
             allPlatforms.Add(spawnedWall2);
