@@ -253,6 +253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songs:
+  - {fileID: 8300000, guid: 1fafde90874e0a34eab9d949cae7f83b, type: 3}
+  - {fileID: 8300000, guid: bc493bd654a014d4c97962194ba54a6d, type: 3}
   - {fileID: 8300000, guid: 976884d5bbba63949858c513ee5e055b, type: 3}
 --- !u!82 &1812191710
 AudioSource:
