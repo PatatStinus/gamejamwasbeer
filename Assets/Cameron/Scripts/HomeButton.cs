@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class HomeButton : MonoBehaviour
 {
+    public void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
     public void Home()
     {
 

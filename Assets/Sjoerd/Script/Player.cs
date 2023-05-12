@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     public float lookSensitivity = 3f;
     public Camera cam;
     public bool grounded;
+    public ScoreScript score;
 
     //wallJumping
     public bool walled;
@@ -37,8 +39,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-       //drag
-      if(walled)
+        //drag
+        if (walled)
         {
             rb.drag = wallDrag;
         }
@@ -49,11 +51,11 @@ public class Player : MonoBehaviour
         float xMov = Input.GetAxisRaw("Horizontal");
         float zMov = Input.GetAxisRaw("Vertical");
         // Jumping
-        if (Input.GetKeyDown(KeyCode.Space)&& grounded && !walled)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded && !walled)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-        if (Input.GetKeyDown(KeyCode.Space)&& walled && !grounded && !wallJumped)
+        if (Input.GetKeyDown(KeyCode.Space) && walled && !grounded && !wallJumped)
         {
             WallJump();
         }
@@ -79,12 +81,12 @@ public class Player : MonoBehaviour
             cam.transform.localEulerAngles = new Vector3(-verticalLookRotation, 0f, 0f);
         }
 
-        
+
     }
     //WallJumps
     private void WallJump()
     {
-        
+
         rb.AddForce(Vector3.up * wallJumpForce, ForceMode.Impulse);
         wallJumped = true;
         Invoke("WallJumpReset", jumpDelay);
@@ -94,7 +96,7 @@ public class Player : MonoBehaviour
     {
         wallJumped = false;
     }
-        private void FixedUpdate()
+    private void FixedUpdate()
     {
         float xMov = Input.GetAxisRaw("Horizontal");
         float zMov = Input.GetAxisRaw("Vertical");
@@ -147,7 +149,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        
+
         if (other.CompareTag("Ground"))
         {
             grounded = false;
@@ -156,19 +158,20 @@ public class Player : MonoBehaviour
         {
             walled = false;
         }
-        
+
     }
     public void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Death"))
         {
             Debug.Log("death");
-            
+            SceneManager.LoadScene("GameOver");
         }
         if (other.gameObject.CompareTag("Laser"))
         {
-            Debug.Log("death");
+
             Destroy(other.gameObject);
+            score.score--;
         }
     }
 }
