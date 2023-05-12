@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9178105702552935112, guid: ec0692482e73a5b40ac7fe227cc185a1, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9178105702552935113, guid: ec0692482e73a5b40ac7fe227cc185a1, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -245,6 +249,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1360578bf2a8d824fa20f38bc7f57d59, type: 3}
+--- !u!1 &572776986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9178105702552935127, guid: ec0692482e73a5b40ac7fe227cc185a1, type: 3}
+  m_PrefabInstance: {fileID: 383194132}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1031959862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -389,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97dab48bcd1ce9c41885801a0e687aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9178105702552935127, guid: ec0692482e73a5b40ac7fe227cc185a1, type: 3}
+  player: {fileID: 572776986}
   floors:
   - {fileID: 2766195121720192984, guid: 5c541ec18b33dec4ebf2ed0d41b7f2a7, type: 3}
   walls:
@@ -409,8 +418,8 @@ MonoBehaviour:
   distanceRange:
   - 5
   - 11
-  spawnDistance: 100
-  removeDistance: 10
+  spawnDistance: 50
+  removeDistance: 500
 --- !u!4 &1156466489
 Transform:
   m_ObjectHideFlags: 0
@@ -441,12 +450,14 @@ MonoBehaviour:
   player: {fileID: 9178105702552935127, guid: ec0692482e73a5b40ac7fe227cc185a1, type: 3}
   ceiling: {fileID: 7744587013260820333, guid: 800cf263de8aaa84dafd4ca770b2e305, type: 3}
   wall: {fileID: 8950299624515158165, guid: 1360578bf2a8d824fa20f38bc7f57d59, type: 3}
+  deathFall: {fileID: 4470034393560392798, guid: 93e15f6a524b9144bba10ec844e1eae0, type: 3}
   wallPosition:
   - 0
   - 7
   ceilingHeight: 6
+  fallHeight: -10
   distanceBetween: 10
-  spawnDistance: 500
+  spawnDistance: 50
   removeDistance: 500
 --- !u!1 &1297266365
 GameObject:

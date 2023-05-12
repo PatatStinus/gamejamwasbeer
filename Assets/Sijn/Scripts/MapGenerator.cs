@@ -21,10 +21,12 @@ public class MapGenerator : MonoBehaviour
 
     void Update()
     {
+        
         if(lastSpawnPoint < spawnDistance + player.transform.position.x)
         {
+         
             distanceToNext = Random.Range(distanceRange[0], distanceRange[1]);
-            platformRandom = Random.Range(0, 2);
+            platformRandom = 0;//Random.Range(0, 2);
             switch(platformRandom)
             {
                 case 0:
