@@ -163,7 +163,12 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Death"))
         {
             Debug.Log("death");
-            Destroy(gameObject);
+            
+        }
+        if (other.gameObject.CompareTag("Laser"))
+        {
+            Debug.Log("death");
+            Destroy(other.gameObject);
         }
     }
 }
