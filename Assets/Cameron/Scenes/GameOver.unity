@@ -677,9 +677,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 918445247}
-        m_TargetAssemblyTypeName: RestartScript, Assembly-CSharp
-        m_MethodName: LoadGame
+      - m_Target: {fileID: 1375943352}
+        m_TargetAssemblyTypeName: HomeButton, Assembly-CSharp
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -894,7 +894,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1375943352}
         m_TargetAssemblyTypeName: HomeButton, Assembly-CSharp
-        m_MethodName: button_exit
+        m_MethodName: Home
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

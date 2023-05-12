@@ -12,4 +12,10 @@ public class HomeButton : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
 
     }
+    public void Reset()
+    {
+
+        SceneManager.LoadScene("Main Scene");
+
+    }
 }
