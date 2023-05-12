@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class Player : MonoBehaviour
     //drag
     public float wallDrag;
     public float groundDrag;
+
+    public ScoreScript score;
 
     private Rigidbody rb;
     private float verticalLookRotation;
@@ -163,11 +166,11 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Death"))
         {
             Debug.Log("death");
-            
+            SceneManager.LoadScene("GameOver");
         }
         if (other.gameObject.CompareTag("Laser"))
         {
-            Debug.Log("death");
+            score.score--;
             Destroy(other.gameObject);
         }
     }
