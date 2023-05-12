@@ -10,16 +10,14 @@ public class Audiomanager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        PlayNextSong();
+        PlaySong(currentSongIndex);
     }
 
-    private void PlayNextSong()
+    private void PlaySong(int songIndex)
     {
         audioSource.Stop();
-        audioSource.clip = songs[currentSongIndex];
+        audioSource.clip = songs[songIndex];
         audioSource.Play();
-
-        currentSongIndex = (currentSongIndex + 1) % songs.Length; // Loop back to the first song if all have been played
     }
 
     private void Update()
@@ -33,6 +31,8 @@ public class Audiomanager : MonoBehaviour
     private IEnumerator PlayNextSongWithDelay()
     {
         yield return new WaitForSeconds(1f); // Delay before playing the next song
-        PlayNextSong();
+
+        currentSongIndex = (currentSongIndex + 1) % songs.Length; // Move to the next song index
+        PlaySong(currentSongIndex);
     }
 }
